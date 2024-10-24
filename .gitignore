@@ -1,0 +1,29 @@
+# Python-related files
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+*.whl
+*.pyo
+*.pyd
+
+# Pycharm-specific files
+.idea/
+.vscode/
+*.iml
+
+# Folders to ignore
+build/
+dist/
+temp_data/
+temp_testing/
+
+# Key files
+*.json
+
+# Environment files
+.venv/
+.env
+
+# Setup files
+setup.py
