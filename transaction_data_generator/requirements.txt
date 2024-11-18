@@ -1,0 +1,4 @@
+functions-framework>=3.8.1
+Faker>=30.8.1
+google-cloud-pubsub
+google-cloud-logging

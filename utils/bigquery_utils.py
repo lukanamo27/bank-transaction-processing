@@ -5,18 +5,20 @@ from pyspark.sql import DataFrame
 
 bq_client = bigquery.Client()
 
-
+# returns?!
 def create_dataset_if_not_exists(dataset_name: str):
     dataset_ref = bigquery.DatasetReference(bq_client.project, dataset_name)
 
     try:
         bq_client.get_dataset(dataset_ref)
         logger.info(f'Dataset {dataset_name} already exists')
+        return "done"
     except NotFound:
         logger.info(f'Dataset {dataset_name} not found. Creating Dataset.')
         dataset = bigquery.Dataset(dataset_ref)
         bq_client.create_dataset(dataset)
         logger.info(f'Dataset {dataset_name} created successfully')
+        # return "oh nooo"
 
 
 def create_table_if_not_exists(

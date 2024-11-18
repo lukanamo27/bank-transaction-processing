@@ -1,4 +1,3 @@
-from docutils.nodes import option
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import count, sum as _sum, avg, month
 from utils.bigquery_utils import create_dataset_if_not_exists, \

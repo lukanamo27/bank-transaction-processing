@@ -13,8 +13,8 @@ logger.info('Starting spark job')
 spark = SparkSession.builder.appName('Bank Transactions ETL').getOrCreate()
 
 BUCKET_NAME = sys.argv[1]
-CUSTOMER_FILE_NAME = sys.argv[2]
-TRANSACTION_FILE_NAME = sys.argv[3]
+CUSTOMER_DATA_PATH = sys.argv[2]
+TRANSACTION_DATA_PATH = sys.argv[3]
 DATASET_NAME = sys.argv[4]
 VALID_TABLE_NAME = sys.argv[5]
 INVALID_TABLE_NAME = sys.argv[6]
@@ -111,14 +111,14 @@ def main():
     )
 
     customers_df = extract_data_from_gcs_to_spark_df(
-        BUCKET_NAME,
-        CUSTOMER_FILE_NAME,
+        bucket_name=BUCKET_NAME,
+        dir_name=CUSTOMER_DATA_PATH,
         spark_session=spark,
         schema=CUSTOMER_SCHEMA
     )
     transactions_df = extract_data_from_gcs_to_spark_df(
-        BUCKET_NAME,
-        TRANSACTION_FILE_NAME,
+        bucket_name=BUCKET_NAME,
+        dir_name=TRANSACTION_DATA_PATH,
         spark_session=spark,
         schema=TRANSACTION_SCHEMA
     )

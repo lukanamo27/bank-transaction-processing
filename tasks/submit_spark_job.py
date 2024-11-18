@@ -13,7 +13,6 @@ def submit_spark_job(
 ):
     try:
         logger.info("Submitting Spark job.")
-
         spark_job = Job(
             placement={'cluster_name': dataproc_cluster_name},
             pyspark_job={
